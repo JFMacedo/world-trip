@@ -18,6 +18,10 @@ export const theme = extendTheme({
       "100": "#DADADA"
     }
   },
+  fonts: {
+    body: "Poppins",
+    cards: "Barlow"
+  },
   styles: {
     global: {
       body: {
