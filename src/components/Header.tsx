@@ -6,7 +6,13 @@ type HeaderProps = {
 
 export function Header({ backButton }: HeaderProps) {
   return (
-    <Grid templateColumns="repeat(3, 1fr)" maxW="1160px" h="100px" py="7" mx="auto">
+    <Grid
+      as="header"
+      templateColumns="repeat(3, 1fr)"
+      maxW="1160px"
+      h="100px" py="7"
+      mx="auto"
+    >
       <GridItem>
         { backButton && (
           <Button variant="unstyled">
