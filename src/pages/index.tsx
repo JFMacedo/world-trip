@@ -1,6 +1,7 @@
 import { Box, Divider, Flex, Image, Stack, Text } from "@chakra-ui/react";
 
 import { Header } from "../components/Header";
+import { Slider } from "../components/Slider";
 
 export default function Home() {
   return (
@@ -38,6 +39,7 @@ export default function Home() {
         maxW="1160px"
         mx="auto"
         mt="28"
+        mb="20"
       >
         <Stack spacing="6" align="center">
           <Image src="./images/cocktail.svg" h="85px" />
@@ -60,9 +62,17 @@ export default function Home() {
           <Text fontSize="2xl" fontWeight="600">e mais...</Text>
         </Stack>
       </Flex>
-      <Box w="88px" mx="auto" my="20">
+      <Box w="88px" mx="auto">
         <Divider borderWidth="1px" borderColor="dark.500" />
       </Box>
+      <Box>
+        <Text my="14" fontSize="4xl" fontWeight="500" textAlign="center">
+          Vamos nessa?
+          <br />
+          Então escolha seu continente
+        </Text>
+      </Box>
+      <Slider />
     </Flex>
   )
 }
