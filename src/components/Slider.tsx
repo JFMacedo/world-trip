@@ -34,7 +34,7 @@ export function Slider() {
             textAlign="center"
             textShadow="0px 1px 3px black"
           >
-            <Link href="/continent/europe">
+            <Link href="/europe">
               <a>
                 <Text fontSize="5xl" fontWeight="700" color="light.900">
                   Europa
@@ -59,7 +59,7 @@ export function Slider() {
             textAlign="center"
             textShadow="0px 1px 3px black"
           >
-            <Link href="/continent/europe">
+            <Link href="/asia">
               <a>
                 <Text fontSize="5xl" fontWeight="700" color="light.900">
                   Asia
