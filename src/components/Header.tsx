@@ -10,6 +10,7 @@ export function Header({ backButton }: HeaderProps) {
     <Grid
       as="header"
       templateColumns="repeat(3, 1fr)"
+      w="100%"
       maxW="1160px"
       h="100px" py="7"
       mx="auto"

@@ -19,8 +19,7 @@ export const theme = extendTheme({
     }
   },
   fonts: {
-    body: "Poppins",
-    cards: "Barlow"
+    body: "Poppins"
   },
   styles: {
     global: {
