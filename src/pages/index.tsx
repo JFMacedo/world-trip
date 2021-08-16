@@ -2,8 +2,9 @@ import { Box, Divider, Flex, Image, Stack, Text } from "@chakra-ui/react";
 
 import { Header } from "../components/Header";
 import { Slider } from "../components/Slider";
+import { api } from "../services/api";
 
-export default function Home() {
+export default function Home({continents}) {
   return (
     <Flex direction="column">
       <Header />
@@ -72,7 +73,24 @@ export default function Home() {
           Então escolha seu continente
         </Text>
       </Box>
-      <Slider />
+      <Slider continents={ continents } />
     </Flex>
   )
+}
+
+export const getStaticProps = async () => {
+  const response = await api.get(`continents`)
+
+  const continents = response.data.map(continent => {
+    return {
+      slug: continent.slug,
+      name: continent.name,
+      image: continent.image,
+      callToAction: continent.callToAction
+    }
+  })
+
+  return {
+    props: { continents }
+  }
 }
