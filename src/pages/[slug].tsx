@@ -1,7 +1,8 @@
 import { Box, Flex, Grid, GridItem, Image, Stack, Text, Tooltip } from "@chakra-ui/react";
 import { Header } from "../components/Header";
+import { api } from "../services/api";
 
-export default function Contnent({ response }) {
+export default function Contnent({ continent }) {
   return (
     <Flex direction="column">
     <Header backButton />
@@ -10,7 +11,7 @@ export default function Contnent({ response }) {
         w="100%"
         h="500px"
         p="14"
-        bg={ `url(${ response[0].image })` }
+        bg={ `url(${ continent.image })` }
         bgSize="cover"
         bgPosition="center"
       >
@@ -21,30 +22,30 @@ export default function Contnent({ response }) {
             color="light.900"
             textShadow="0px 1px 3px black"
           >
-            { response[0].name }
+            { continent.name }
           </Text>
         </Box>
       </Flex>
       <Flex as="section" align="center" w="100%" maxW="1160px" mx="auto" my="20">
         <Text fontSize="2xl" maxW="600px" textAlign="justify">
-        { response[0].description }
+        { continent.description }
         </Text>
         <Flex flex="1" justify="space-between" ml="16">
           <Stack spacing="-0.5" align="center">
             <Text fontSize="5xl" fontWeight="600" color="highlight.100">
-              { response[0].countries }
+              { continent.countries }
             </Text>
             <Text fontSize="2xl" fontWeight="600">países</Text>
           </Stack>
           <Stack spacing="-0.5" align="center">
             <Text fontSize="5xl" fontWeight="600" color="highlight.100">
-              { response[0].languages }
+              { continent.languages }
             </Text>
             <Text fontSize="2xl" fontWeight="600">línguas</Text>
           </Stack>
           <Stack spacing="-0.5" align="center">
             <Text fontSize="5xl" fontWeight="600" color="highlight.100">
-              { response[0].topCities.length }
+              { continent.topCities.length }
             </Text>
             <Flex align="baseline">
             <Text fontSize="2xl" fontWeight="600">
@@ -75,7 +76,7 @@ export default function Contnent({ response }) {
         mx="auto"
         my="20"
       >
-        { response[0].topCities.map(city => (
+        { continent.topCities.map(city => (
         <GridItem
           key={ city.name }
           bgColor="light.900"
@@ -127,12 +128,13 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const { slug } = params
 
-  const response = await fetch(`http://localhost:3333/continents?slug=${slug}`)
-    .then(response => response.json())
+  const response = await api.get(`continents?slug=${ slug }`)
+
+  const continent = response.data[0]
 
   return {
     props: {
-      response
+      continent
     }
   }
 }

@@ -23,7 +23,7 @@ export function Slider(data) {
         pagination={ { clickable: true } }
         style={ { width: "100%", flex: "1" } }
       >
-        { continents.map(continent => {(
+        { continents.map(continent => (
           <SwiperSlide key={ continent.slug }>
             <Flex
               w="100%"
@@ -49,7 +49,7 @@ export function Slider(data) {
               </Link>
             </Flex>
           </SwiperSlide>
-        )}) }
+        )) }
       </Swiper>
     </Flex>
   );
